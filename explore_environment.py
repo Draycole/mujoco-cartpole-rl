@@ -16,7 +16,7 @@ num_episodes = 10
 episode_rewards = []
 
 for episode in range (num_episodes):
-    observation, info = env reset()
+    observation, info = env.reset()
     total_reward = 0
     done = False
 
