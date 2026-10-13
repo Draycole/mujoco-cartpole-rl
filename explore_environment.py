@@ -10,4 +10,4 @@ print(f"  Observations: [cart_position, pole_angle, cart_velocity, pole_angular_
 print(f"\nAction Space: {env.action_space}")
 print(f"  Shape: {env.action_space.shape}")
 print(f"  Range: [{env.action_space.low[0]}, {env.action_space.high[0]}]")
-print(f"  Action: force applied to cart in Newtons")
+print(f"  Action: force applied to cart in Newtons") 
