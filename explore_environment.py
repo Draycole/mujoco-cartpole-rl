@@ -23,7 +23,7 @@ for episode in range (num_episodes):
     while not done:
         action = env.action_space.sample() #random action
         observation, reward, terminated, truncated, info = env.step(action)
-        total reward += reward
+        total_reward += reward
         done = terminated or truncated
     
     episode_rewards.append(total_reward)
