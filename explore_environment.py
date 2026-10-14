@@ -12,7 +12,7 @@ print(f"  Shape: {env.action_space.shape}")
 print(f"  Range: [{env.action_space.low[0]}, {env.action_space.high[0]}]")
 print(f"  Action: force applied to cart in Newtons") 
 
-num_episodes = 1000
+num_episodes = 100
 episode_rewards = []
 
 for episode in range (num_episodes):
