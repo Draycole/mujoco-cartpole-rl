@@ -12,7 +12,7 @@ print(f"  Shape: {env.action_space.shape}")
 print(f"  Range: [{env.action_space.low[0]}, {env.action_space.high[0]}]")
 print(f"  Action: force applied to cart in Newtons") 
 
-num_episodes = 10
+num_episodes = 1000
 episode_rewards = []
 
 for episode in range (num_episodes):
@@ -32,5 +32,6 @@ for episode in range (num_episodes):
 env.close()
 
 print(f"\n=== Random Agent Results ===")
-print(f"Mean Reward: {np.mean(episode_rewards):.1f} / 1000")
-print(f"The pole falls almost immediately without a learned policy!")
+print(f"Mean Reward: {np.mean(episode_rewards):.1f} / 1000") 
+
+#lol the pole falls basically immediately each time.
