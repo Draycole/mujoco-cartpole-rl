@@ -1,6 +1,6 @@
 import gymnasium as gym
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.callbacks import EvalCallback
