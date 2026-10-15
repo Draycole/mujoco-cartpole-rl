@@ -1,7 +1,7 @@
 from stable_baselines3 import PPO
 import gymnasium as gym
 
-model = PPO.load("ppo_pendulum_trained")
+model = PPO.load("./best_model/best_model")
 
 env = gym.make(
     "InvertedPendulum-v5",
