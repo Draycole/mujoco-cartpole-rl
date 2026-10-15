@@ -44,7 +44,7 @@ mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes=10)
 print(f"Mean Reward: {mean_reward:.1f} +/- {std_reward:.1f}")
 
 # plot training curve from eval logs
-eval_results = np.load("./eval_logs/evaluations.npz")
+eval_results = np.load("./logs/evaluations.npz")
 timesteps = eval_results["timesteps"]
 results = eval_results["results"]
 mean_rewards = np.mean(results, axis=1)
