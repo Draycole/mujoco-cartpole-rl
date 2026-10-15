@@ -37,3 +37,52 @@ model.learn(total_timesteps=100_000, callback=eval_callback)
 
 model.save("ppo_pendulum_trained")
 print("Model saved as 'ppo_pendulum_trained.zip'")
+
+# agent evaluation
+print("\n=== Evaluating Fully Trained Agent ===")
+mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes=10)
+print(f"Mean Reward: {mean_reward:.1f} +/- {std_reward:.1f}")
+
+# plot training curve from eval logs
+eval_results = np.load("./eval_logs/evaluations.npz")
+timesteps = eval_results["timesteps"]
+results = eval_results["results"]
+mean_rewards = np.mean(results, axis=1)
+
+plt.figure(figsize=(10, 6))
+plt.plot(timesteps, mean_rewards, linewidth=2, color="blue")
+plt.fill_between(
+    timesteps,
+    mean_rewards - np.std(results, axis=1),
+    mean_rewards + np.std(results, axis=1),
+    alpha=0.2,
+    color="blue",
+)
+plt.xlabel("Training Timesteps", fontsize=12)
+plt.ylabel("Mean Episode Reward", fontsize=12)
+plt.title("PPO Training Progress: Inverted Pendulum", fontsize=14)
+plt.axhline(y=1000, color="green", linestyle="--", label="Maximum Reward (1000)")
+plt.legend(fontsize=11)
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig("training_curve.png", dpi=150)
+plt.show()
+print("Training curve saved as 'training_curve.png'")
+
+eval_env.close()
+env.close()
+
+# render
+render_env = gym.make("InvertedPendulum-v5", render_mode="human")
+obs, info = render_env.reset()
+total_reward = 0
+done = False
+
+while not done:
+    action, _ = model.predict(obs, deterministic=True)
+    obs, reward, terminated, truncated, info = render_env.step(action)
+    total_reward += reward
+    done = terminated or truncated
+
+print(f"Rendered episode reward: {total_reward:.0f}")
+render_env.close()
