@@ -101,3 +101,118 @@ Wrapping the env in a DummyVecEnv.
 |    value_loss           | 42.6        |
 -----------------------------------------
 Model saved as 'ppo_pendulum_undertrained.zip
+
+--------
+
+logs from running eval code
+
+Training PPO for 10000 timesteps (exploring undertraining)
+Using cpu device
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 8.74     |
+|    ep_rew_mean     | 7.74     |
+| time/              |          |
+|    fps             | 438      |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 2048     |
+---------------------------------
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 11.8        |
+|    ep_rew_mean          | 10.8        |
+| time/                   |             |
+|    fps                  | 525         |
+|    iterations           | 2           |
+|    time_elapsed         | 7           |
+|    total_timesteps      | 4096        |
+| train/                  |             |
+|    approx_kl            | 0.020193448 |
+|    clip_fraction        | 0.185       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | -0.00335    |
+|    learning_rate        | 0.0003      |
+|    loss                 | 3.83        |
+|    n_updates            | 10          |
+|    policy_gradient_loss | -0.025      |
+|    std                  | 0.965       |
+|    value_loss           | 15.5        |
+-----------------------------------------
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 16.2        |
+|    ep_rew_mean          | 15.2        |
+| time/                   |             |
+|    fps                  | 553         |
+|    iterations           | 3           |
+|    time_elapsed         | 11          |
+|    total_timesteps      | 6144        |
+| train/                  |             |
+|    approx_kl            | 0.022249456 |
+|    clip_fraction        | 0.206       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.36       |
+|    explained_variance   | 0.125       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 9.17        |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.0306     |
+|    std                  | 0.917       |
+|    value_loss           | 17.6        |
+-----------------------------------------
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 24.7        |
+|    ep_rew_mean          | 23.7        |
+| time/                   |             |
+|    fps                  | 526         |
+|    iterations           | 4           |
+|    time_elapsed         | 15          |
+|    total_timesteps      | 8192        |
+| train/                  |             |
+|    approx_kl            | 0.020423975 |
+|    clip_fraction        | 0.192       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.31       |
+|    explained_variance   | 0.151       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 15.3        |
+|    n_updates            | 30          |
+|    policy_gradient_loss | -0.0314     |
+|    std                  | 0.871       |
+|    value_loss           | 29.8        |
+-----------------------------------------
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 32.3        |
+|    ep_rew_mean          | 31.3        |
+| time/                   |             |
+|    fps                  | 548         |
+|    iterations           | 5           |
+|    time_elapsed         | 18          |
+|    total_timesteps      | 10240       |
+| train/                  |             |
+|    approx_kl            | 0.009444062 |
+|    clip_fraction        | 0.0996      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.27       |
+|    explained_variance   | 0.146       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 17.9        |
+|    n_updates            | 40          |
+|    policy_gradient_loss | -0.0189     |
+|    std                  | 0.848       |
+|    value_loss           | 46.4        |
+-----------------------------------------
+Model saved as 'ppo_pendulum_undertrained.zip
+
+--- Evaluating the Undertrained Agent ---
+/home/munachimso/projects/mujoco-cartpole-rl/.venv/lib/python3.10/site-packages/stable_baselines3/common/evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+Mean Reward: 89.1 +/- 7.1
+The agent is learning but not god enough yet
+Rendered episode reward: 97

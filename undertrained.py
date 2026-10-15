@@ -15,7 +15,7 @@ print("\n--- Evaluating the Undertrained Agent ---")
 eval_env = gym.make("InvertedPendulum-v5")
 mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes=10)
 print(f"Mean Reward: {mean_reward:.1f} +/- {std_reward:.1f}")
-print(f"The agent is learning but not god enough yet")
+print(f"The agent is learning but not good enough yet")
 
 eval_env.close()
 env.close()
