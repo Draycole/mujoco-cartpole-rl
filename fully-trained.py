@@ -11,7 +11,7 @@ eval_env = gym.make("InvertedPendulum-v5")
 eval_callback = EvalCallback(
     eval_env,
     best_model_save_path="./best_model/",
-    log_path="./logs/"
+    log_path="./logs/",
     eval_freq=5000,
     n_eval_episodes=10,
     deterministic=True,
